@@ -27,10 +27,11 @@ class WelcomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                SizedBox(height: height * 0.09), // Adjust the height
                 Column(
                   children: [
                     Text(
-                      WelcomeTitle,
+                      "iFILTER",
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 52,

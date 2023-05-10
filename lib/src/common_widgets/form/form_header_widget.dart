@@ -8,9 +8,9 @@ class FormHeaderWidget extends StatelessWidget {
     required this.image,
     required this.title,
     required this.subTitle,
-    this.imageHeight = 0.2,
+    this.imageHeight = 0.1,
     this.textAlign,
-    this.crossAxisAlignment = CrossAxisAlignment.start,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
   }) : super(key: key);
 
   // Variables -- Declared in Constructor
@@ -31,10 +31,9 @@ class FormHeaderWidget extends StatelessWidget {
         Image(
           image: AssetImage(image),
           color: imageColor,
-          height: size.height * 0.5,
+          height: size.height * 0.3,
           width: size.width * 0.5,
         ),
-        //SizedBox(height: heightBetween),
         Text(
           title,
           style: Theme.of(context).textTheme.headline5,

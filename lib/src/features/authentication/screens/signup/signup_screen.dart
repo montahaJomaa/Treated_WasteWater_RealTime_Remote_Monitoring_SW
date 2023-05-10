@@ -27,21 +27,23 @@ class SignUpScreen extends StatelessWidget {
                     subTitle: SignUpsubTitle),
                 SignUpFormWidget(),
                 TextButton(
-                    onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LoginScreen()),
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  ),
+                  child: Text.rich(
+                    TextSpan(
+                      text: "Already have an Account? ",
+                      style: Theme.of(context).textTheme.bodyText1,
+                      children: const [
+                        TextSpan(
+                          text: "Log in",
+                          style: TextStyle(color: PrimaryColor),
                         ),
-                    child: Text.rich(
-                      TextSpan(
-                          text: "Already have an Account? ",
-                          style: Theme.of(context).textTheme.bodyText1,
-                          children: const [
-                            TextSpan(
-                                text: "Log in",
-                                style: TextStyle(color: PrimaryColor))
-                          ]),
-                    )),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

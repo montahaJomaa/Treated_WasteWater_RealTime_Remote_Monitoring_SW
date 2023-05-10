@@ -42,6 +42,7 @@ class ProfileMenuWidget extends StatelessWidget {
               height: 30,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
+
                 // color: Colors.grey.withOpacity(0.1)
               ),
               child: const Icon(Icons.arrow_forward_ios_rounded,

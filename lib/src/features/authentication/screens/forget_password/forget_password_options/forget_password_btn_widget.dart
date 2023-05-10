@@ -1,39 +1,64 @@
 import 'package:flutter/material.dart';
 
 class ForgetPasswordBtnWidget extends StatelessWidget {
+  final IconData btnIcon;
+  final String title;
+  final String subTitle;
+  final Color iconColor;
+
   const ForgetPasswordBtnWidget({
     required this.btnIcon,
     required this.title,
     required this.subTitle,
+    required this.iconColor,
     required this.onTap,
-    Key? key,
-  }) : super(key: key);
+  });
 
-  final IconData btnIcon;
-  final String title, subTitle;
-  final VoidCallback onTap;
+  final void Function() onTap;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.all(20.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
-          color: Colors.grey.shade200,
-        ),
-        child: Row(
-          children: [
-            Icon(btnIcon, size: 60.0),
-            SizedBox(width: 10.0),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(100.0),
+        child: Card(
+          elevation: 2.0,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 22.0,
+              horizontal: 6.0,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(title, style: Theme.of(context).textTheme.headline6),
-                Text(subTitle, style: Theme.of(context).textTheme.bodyText2)
+                Icon(
+                  btnIcon,
+                  color: iconColor,
+                ),
+                SizedBox(width: 10.0),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    Text(
+                      subTitle,
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 12.0,
+                      ),
+                    ),
+                  ],
+                ),
               ],
-            )
-          ],
+            ),
+          ),
         ),
       ),
     );

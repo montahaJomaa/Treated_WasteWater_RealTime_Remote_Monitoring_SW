@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:ifilter_mobile_application/src/constants/sizes.dart';
 import 'package:ifilter_mobile_application/src/constants/colors.dart';
 import '../../../../../features/authentication/screens/forget_password/forget_password_options/forget_password_model_bottom_sheet.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,34 +18,34 @@ class LoginForm extends StatelessWidget {
           children: [
             SizedBox(height: 20),
             TextFormField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 prefixIcon:
                     Icon(Icons.person_outline_outlined, color: PrimaryColor),
                 labelText: "Email",
                 hintText: "Email",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(100.0),
-                  ),
-                  borderSide: BorderSide(
-                    color: PrimaryColor, // Set the side color
-                  ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                  borderSide: BorderSide(color: PrimaryColor),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                  borderSide: BorderSide(color: PrimaryColor),
                 ),
               ),
             ),
             SizedBox(height: 10),
             TextFormField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 prefixIcon: Icon(Icons.fingerprint, color: PrimaryColor),
                 labelText: "Password",
                 hintText: "Password",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(100.0),
-                  ),
-                  borderSide: BorderSide(
-                    color: PrimaryColor, // Set the side color
-                  ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                  borderSide: BorderSide(color: PrimaryColor),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                  borderSide: BorderSide(color: PrimaryColor),
                 ),
                 suffixIcon: IconButton(
                   onPressed: null,
@@ -66,6 +67,7 @@ class LoginForm extends StatelessWidget {
             ),
             SizedBox(
               width: double.infinity,
+              height: FormHeight + 15,
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
