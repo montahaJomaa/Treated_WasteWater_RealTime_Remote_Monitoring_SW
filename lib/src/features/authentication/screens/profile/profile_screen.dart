@@ -14,16 +14,17 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+
     return Scaffold(
       body: Column(
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: EdgeInsets.only(top: 20), // Add spacing at the top
+              padding: EdgeInsets.only(top: 40), // Add spacing at the top
               child: Column(
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(DefaultSize),
+                    padding: const EdgeInsets.symmetric(horizontal: 50),
                     child: Column(
                       children: [
                         const SizedBox(height: FormHeight),

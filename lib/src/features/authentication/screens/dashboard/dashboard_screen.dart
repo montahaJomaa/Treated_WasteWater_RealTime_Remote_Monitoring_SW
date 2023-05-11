@@ -14,10 +14,9 @@ class Dashboard extends StatelessWidget {
 
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start, // Align children at the top
         children: [
           Container(
-            padding: EdgeInsets.symmetric(vertical: 80, horizontal: 50),
+            padding: EdgeInsets.symmetric(vertical: 50, horizontal: 50),
             decoration: BoxDecoration(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -30,7 +29,7 @@ class Dashboard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 10), // Adjust the height as needed
+                SizedBox(height: 40),
                 Text(
                   'Water Quality & Irrigation Safety',
                   style: TextStyle(
@@ -39,62 +38,62 @@ class Dashboard extends StatelessWidget {
                     fontSize: 15.0,
                   ),
                 ),
-              ],
-            ),
-          ),
-          Container(
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Center(
-                  child: Image.asset(
-                    DrinkingSafety,
-                    fit: BoxFit.cover,
-                    width: 150,
-                    height: 150,
-                  ),
-                ),
-                Center(
-                  child: Text(
-                    '57%',
-                    style: TextStyle(
-                      fontSize: 32.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                SizedBox(height: 10),
+                Container(
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Center(
+                        child: Image.asset(
+                          DrinkingSafety,
+                          fit: BoxFit.cover,
+                          width: 200,
+                          height: 200,
+                        ),
+                      ),
+                      Center(
+                        child: Text(
+                          '57%',
+                          style: TextStyle(
+                            fontSize: 32.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
           ),
           Expanded(
-            child: GridView.count(
-              crossAxisCount: 2,
-              childAspectRatio: 1.5,
-              mainAxisSpacing: 0.0,
-              crossAxisSpacing: 10.0,
-              padding: EdgeInsets.symmetric(horizontal: 60.0),
-              children: [
-                WaterParametersCards(title: 'pH', value: '7.2'),
-                WaterParametersCards(
-                    title: 'Chemical Oxygen Demand', value: '20 mg/L'),
-                WaterParametersCards(title: 'Conductivity', value: '3.10¨^4'),
-                WaterParametersCards(
-                    title: 'Dissolved oxygen', value: '6.0 mg/L'),
-                WaterParametersCards(title: 'Turbidity', value: '250 mg/L'),
-                WaterParametersCards(
-                    title: 'Suspended Solids', value: '10 mg/L'),
-                WaterParametersCards(title: 'Ammonium', value: '3.10¨^4'),
-                WaterParametersCards(title: 'Chlorophyll', value: '6.0 mg/L'),
-                WaterParametersCards(title: 'Chloride', value: '250 mg/L'),
-                WaterParametersCards(
-                    title: 'Oxidation-Reduction Potential', value: '10 mg/L'),
-              ],
+            child: SingleChildScrollView(
+              child: GridView.count(
+                crossAxisCount: 2,
+                childAspectRatio: 1.5,
+                mainAxisSpacing: 0.0,
+                crossAxisSpacing: 10.0,
+                padding: EdgeInsets.symmetric(horizontal: 60.0),
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                children: [
+                  WaterParametersCards(title: 'pH', value: '7.2'),
+                  WaterParametersCards(title: 'COD', value: '20 mg/L'),
+                  WaterParametersCards(title: 'Conductivity', value: '3.10¨^4'),
+                  WaterParametersCards(title: 'DO', value: '6.0 mg/L'),
+                  WaterParametersCards(title: 'Turbidity', value: '250 mg/L'),
+                  WaterParametersCards(title: 'SS', value: '10 mg/L'),
+                  WaterParametersCards(title: 'Ammonium', value: '3.10¨^4'),
+                  WaterParametersCards(title: 'Chlorophyll', value: '6.0 mg/L'),
+                  WaterParametersCards(title: 'Chloride', value: '250 mg/L'),
+                  WaterParametersCards(title: 'ORP', value: '10 mg/L'),
+                ],
+              ),
             ),
           ),
-
-          // Bottom Navigation Menu
-          BottomNavigationMenu(),
+          SizedBox(height: 40),
+          BottomNavigationMenu(), // Bottom Navigation Menu
         ],
       ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ifilter_mobile_application/src/constants/sizes.dart';
 import 'package:ifilter_mobile_application/src/constants/colors.dart';
 import '../../../../../features/authentication/screens/forget_password/forget_password_options/forget_password_model_bottom_sheet.dart';
+import 'package:ifilter_mobile_application/src/features/authentication/screens/dashboard/dashboard_screen.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -69,7 +70,12 @@ class LoginForm extends StatelessWidget {
               width: double.infinity,
               height: FormHeight + 15,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Dashboard(),
+                  ),
+                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: PrimaryColor,
                   side: BorderSide(color: PrimaryColor),

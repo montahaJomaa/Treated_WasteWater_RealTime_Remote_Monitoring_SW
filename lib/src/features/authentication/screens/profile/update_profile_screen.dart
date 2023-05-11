@@ -20,7 +20,7 @@ class UpdateProfileScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 50),
+                    padding: EdgeInsets.symmetric(horizontal: 60),
                     child: Column(
                       children: [
                         const SizedBox(height: FormHeight),
