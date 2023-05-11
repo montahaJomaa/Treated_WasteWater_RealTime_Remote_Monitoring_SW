@@ -2,7 +2,6 @@ import "package:flutter/material.dart";
 import 'package:ifilter_mobile_application/src/common_widgets/form/form_header_widget.dart';
 import 'package:ifilter_mobile_application/src/constants/colors.dart';
 import 'package:ifilter_mobile_application/src/constants/image_string.dart';
-import '../../../../constants/sizes.dart';
 import '../../../../constants/text_strings.dart';
 import 'package:ifilter_mobile_application/src/features/authentication/screens/signup/widgets/signup_form_widget.dart';
 import 'package:ifilter_mobile_application/src/features/authentication/screens/login/login_screen.dart';

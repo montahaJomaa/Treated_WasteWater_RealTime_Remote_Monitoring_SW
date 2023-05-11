@@ -26,6 +26,7 @@ flutter:
      - assets/images/login_image/login_image.png
      - assets/images/forget_password/forget_password.png
      - assets/images/profile_image/profile_image.png
+     - assets/images/drinking_safety/drinking_safety.png
 
 
   # fonts:

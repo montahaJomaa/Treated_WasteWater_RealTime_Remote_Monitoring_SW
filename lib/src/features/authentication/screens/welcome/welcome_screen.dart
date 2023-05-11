@@ -62,7 +62,7 @@ class WelcomeScreen extends StatelessWidget {
                         onPressed: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ProfileScreen()),
+                              builder: (context) => LoginScreen()),
                         ),
                         style: OutlinedButton.styleFrom(
                           elevation: 0.0,

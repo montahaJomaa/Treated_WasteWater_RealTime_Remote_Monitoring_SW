@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ifilter_mobile_application/src/constants/sizes.dart';
 import 'package:ifilter_mobile_application/src/constants/colors.dart';
+import 'package:ifilter_mobile_application/src/features/authentication/screens/dashboard/dashboard_screen.dart';
 
 class SignUpFormWidget extends StatelessWidget {
   const SignUpFormWidget({
@@ -81,12 +82,12 @@ class SignUpFormWidget extends StatelessWidget {
               width: double.infinity,
               height: FormHeight + 15,
               child: ElevatedButton(
-                onPressed: () {},
-                /*onPressed: () => Navigator.push(
+                onPressed: () => Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginScreen(),
+                  MaterialPageRoute(
+                    builder: (context) => Dashboard(),
                   ),
-                ),*/
+                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: PrimaryColor,
                   side: BorderSide.none,

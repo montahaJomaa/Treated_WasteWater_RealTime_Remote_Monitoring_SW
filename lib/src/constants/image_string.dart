@@ -14,3 +14,7 @@ const String ForgetPasswordImage =
 
 /* -- Profile Screen --*/
 const String ProfileImage = "assets/images/profile_image/profile_image.png";
+
+/* -- Dashboard Screen -- */
+const String DrinkingSafety =
+    "assets/images/drinking_safety/drinking_safety.png";
