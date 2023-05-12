@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ifilter_mobile_application/src/constants/sizes.dart';
 import 'package:ifilter_mobile_application/src/constants/colors.dart';
 import 'package:ifilter_mobile_application/src/common_widgets/bottom_navigation_menu/bottom_navigation_menu.dart';
-import 'health_check_sensros/health_check_sensors_pH.dart';
+import 'health_check_element/health_check_pH.dart';
 
 class HealthCheck extends StatelessWidget {
   @override
@@ -36,8 +36,7 @@ class HealthCheck extends StatelessWidget {
                               press: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        HealthCheckPHSensor()),
+                                    builder: (context) => HealthCheckpH()),
                               ),
                             ),
                             HealthCheckMenu(
@@ -112,13 +111,13 @@ class HealthCheckMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
       child: TextButton(
         style: TextButton.styleFrom(
           padding: EdgeInsets.all(20),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          backgroundColor: Color(0xFFF5F6F9),
+          backgroundColor: Color(0xFFECEFF1),
         ),
         onPressed: press,
         child: Row(

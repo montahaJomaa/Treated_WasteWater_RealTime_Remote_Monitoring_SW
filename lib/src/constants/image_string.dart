@@ -18,3 +18,9 @@ const String ProfileImage = "assets/images/profile_image/profile_image.png";
 /* -- Dashboard Screen -- */
 const String DrinkingSafety =
     "assets/images/drinking_safety/drinking_safety.png";
+
+/* -- Health Check Screen -- */
+const String OnlineSystem = "assets/images/system_status/online_system.png";
+const String OfflineSystem = "assets/images/system_status/offline_system.png";
+const String SystemMaintenance =
+    "assets/images/system_status/system_maintenance.png";

@@ -6,6 +6,7 @@ import 'widget_themes/text_field_theme.dart';
 class MyAppTheme {
   MyAppTheme._();
   static ThemeData lightTheme = ThemeData(
+    useMaterial3: true,
     brightness: Brightness.light,
     textTheme: MyhAppTextTheme.lightTextTheme,
     //appBarTheme: MyAppTheme.lightAppBarTheme,
