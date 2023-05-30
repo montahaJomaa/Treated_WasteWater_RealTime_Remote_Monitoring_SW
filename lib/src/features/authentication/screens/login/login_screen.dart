@@ -1,12 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ifilter_mobile_application/src/constants/image_string.dart';
 import 'package:ifilter_mobile_application/src/constants/text_strings.dart';
+import 'auth_page.dart';
 import 'widgets/login_form_widget.dart';
 import 'widgets/login_footer_widget.dart';
 import '../../../../common_widgets/form/form_header_widget.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  LoginScreen({Key? key}) : super(key: key);
+
+  String? errorMessage = "";
+  bool isLogin = true;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +29,7 @@ class LoginScreen extends StatelessWidget {
                   title: LoginTitle,
                   subTitle: LoginSubTitle,
                 ),
-                const LoginForm(),
+                LoginForm(),
                 LoginFooterWidget()
               ],
             ),

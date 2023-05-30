@@ -6,9 +6,16 @@ import '../../../../constants/sizes.dart';
 import '../../../../constants/colors.dart';
 import 'package:ifilter_mobile_application/src/features/authentication/screens/signup/signup_screen.dart';
 import '../../../../features/authentication/screens/profile/profile_screen.dart';
+import '../login/auth_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+  WelcomeScreen({Key? key}) : super(key: key);
+
+  //final User? user = Auth().currentUser;
+  /*Future<void> signOut() async {
+    await Auth().signOut();
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +66,13 @@ class WelcomeScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: OutlinedButton(
-                        onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LoginScreen()),
-                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginScreen()),
+                          );
+                        },
                         style: OutlinedButton.styleFrom(
                           elevation: 0.0,
                           shape: RoundedRectangleBorder(

@@ -1,18 +1,36 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ifilter_mobile_application/src/constants/sizes.dart';
 import 'package:ifilter_mobile_application/src/constants/colors.dart';
 import 'package:ifilter_mobile_application/src/features/authentication/screens/dashboard/dashboard_screen.dart';
 
 class SignUpFormWidget extends StatelessWidget {
-  const SignUpFormWidget({
+  SignUpFormWidget({
     Key? key,
   }) : super(key: key);
 
+  GlobalKey<FormState> formSignUpKey = GlobalKey<FormState>();
+
+  final TextEditingController _controllerEmail = TextEditingController();
+  final TextEditingController _controllerPassword = TextEditingController();
+
+  Future<void> createUserWithEmailAndPassword() async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _controllerEmail.text,
+        password: _controllerPassword.text,
+      );
+
+      MaterialPageRoute(builder: (context) => Dashboard());
+    } on FirebaseAuthException catch (e) {}
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SingleChildScrollView(
       //padding: EdgeInsets.symmetric(vertical: 50),
       child: Form(
+        key: formSignUpKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -34,6 +52,7 @@ class SignUpFormWidget extends StatelessWidget {
             ),
             const SizedBox(height: FormHeight - 20),
             TextFormField(
+              controller: _controllerEmail,
               decoration: InputDecoration(
                 label: Text("Email"),
                 prefixIcon: Icon(Icons.email_outlined, color: PrimaryColor),
@@ -64,6 +83,7 @@ class SignUpFormWidget extends StatelessWidget {
             ),
             const SizedBox(height: FormHeight - 20),
             TextFormField(
+              controller: _controllerPassword,
               decoration: InputDecoration(
                 label: Text("Password"),
                 prefixIcon: Icon(Icons.fingerprint, color: PrimaryColor),
@@ -82,12 +102,9 @@ class SignUpFormWidget extends StatelessWidget {
               width: double.infinity,
               height: FormHeight + 15,
               child: ElevatedButton(
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Dashboard(),
-                  ),
-                ),
+                onPressed: () {
+                  createUserWithEmailAndPassword();
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: PrimaryColor,
                   side: BorderSide.none,

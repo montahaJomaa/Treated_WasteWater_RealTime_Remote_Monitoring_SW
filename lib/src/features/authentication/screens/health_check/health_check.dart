@@ -27,6 +27,14 @@ class HealthCheck extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 30),
+                          child: Image.asset(
+                            'assets/images/health_check/health_check_image.png',
+                            width: 250, // Customize the width of the image
+                            height: 250, // Customize the height of the image
+                          ),
+                        ),
                         Column(
                           children: [
                             SizedBox(height: 20),

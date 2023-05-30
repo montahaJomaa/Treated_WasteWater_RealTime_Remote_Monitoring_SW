@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "178505688610",
+    "project_id": "ifilter-33bac",
+    "storage_bucket": "ifilter-33bac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178505688610:android:8ee3b5455e74acf7790c7b",
+        "android_client_info": {
+          "package_name": "com.example.ifilter_mobile_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178505688610-1td40lb0mg92vub64mlf1nkk527o1frs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDupba-tgSZddXQ0TXEV-PG5oFtbfnXOmI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "178505688610-1td40lb0mg92vub64mlf1nkk527o1frs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "178505688610-k0ec42f75trq9bmcvju8ils8lch1sa9t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ifilterMobileApplication"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

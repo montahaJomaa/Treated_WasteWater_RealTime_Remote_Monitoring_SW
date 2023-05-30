@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 import 'package:ifilter_mobile_application/src/common_widgets/form/form_header_widget.dart';
 import 'package:ifilter_mobile_application/src/constants/colors.dart';
@@ -6,9 +7,14 @@ import '../../../../constants/text_strings.dart';
 import 'package:ifilter_mobile_application/src/features/authentication/screens/signup/widgets/signup_form_widget.dart';
 import 'package:ifilter_mobile_application/src/features/authentication/screens/login/login_screen.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatefulWidget {
+  SignUpScreen({Key? key}) : super(key: key);
 
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

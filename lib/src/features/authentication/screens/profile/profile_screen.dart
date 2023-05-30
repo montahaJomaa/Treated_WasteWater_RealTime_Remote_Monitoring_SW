@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ifilter_mobile_application/src/constants/colors.dart';
 import 'package:ifilter_mobile_application/src/constants/image_string.dart';
 import 'package:ifilter_mobile_application/src/constants/text_strings.dart';
 import 'package:ifilter_mobile_application/src/constants/sizes.dart';
+import 'package:ifilter_mobile_application/src/features/authentication/screens/profile/contact_us.dart';
+import 'package:ifilter_mobile_application/src/features/authentication/screens/profile/privacy_policy.dart';
 import 'widgets/profile_menu.dart';
 import 'update_profile_screen.dart';
 import 'package:ifilter_mobile_application/src/features/authentication/screens/welcome/welcome_screen.dart';
@@ -73,33 +76,42 @@ class ProfileScreen extends StatelessWidget {
 
                         // MENU
                         ProfileMenuWidget(
-                            title: "Privacy Policy",
-                            icon: Icons.lock_outline,
-                            onPress: () {}),
-                        ProfileMenuWidget(
-                            title: "Help",
-                            icon: Icons.contact_support_outlined,
-                            onPress: () {}),
-                        ProfileMenuWidget(
+                          title: "Privacy Policy",
+                          icon: Icons.lock_outline,
+                          onPress: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PrivacyPolicy()),
+                          ),
+                        ),
+                        /*ProfileMenuWidget(
                             title: "iFILTER",
                             icon: Icons.water_drop_outlined,
                             onPress: () {}),
-                        const SizedBox(height: 15),
+                        const SizedBox(height: 15),*/
                         const Divider(color: Colors.grey),
                         ProfileMenuWidget(
-                            title: "Contact Us",
-                            icon: Icons.connect_without_contact,
-                            onPress: () {}),
+                          title: "Contact Us",
+                          icon: Icons.connect_without_contact,
+                          onPress: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ContactUs()),
+                          ),
+                        ),
                         ProfileMenuWidget(
                           title: "Log out",
                           icon: Icons.logout_outlined,
                           textColor: Colors.red,
                           endIcon: false,
-                          onPress: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => WelcomeScreen()),
-                          ),
+                          onPress: () async {
+                            await FirebaseAuth.instance.signOut();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => WelcomeScreen()),
+                            );
+                          },
                         ),
                       ],
                     ),

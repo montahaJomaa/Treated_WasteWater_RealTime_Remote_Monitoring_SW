@@ -60,7 +60,7 @@ class _HealthCheckpHState extends State<HealthCheckpH> {
               ),
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 25),
           BottomNavigationMenu(),
         ],
       ),
@@ -85,7 +85,7 @@ class _SensorOverviewState extends State<SensorOverview> {
       width: 150,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: PrimaryColor,
+        color: Colors.white,
       ),
       child: Column(
         crossAxisAlignment:
@@ -94,7 +94,7 @@ class _SensorOverviewState extends State<SensorOverview> {
           const Text(
             "pH Sensor Overview",
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontWeight: FontWeight.bold,
               fontSize: 12,
             ),
@@ -107,7 +107,7 @@ class _SensorOverviewState extends State<SensorOverview> {
               Text(
                 "Installation Date",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 11,
                 ),
               ),
@@ -123,7 +123,7 @@ class _SensorOverviewState extends State<SensorOverview> {
               Text(
                 "Warranty Expiration",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 11,
                 ),
               ),
@@ -139,7 +139,7 @@ class _SensorOverviewState extends State<SensorOverview> {
               Text(
                 "Sensor Life Expectancy",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 11,
                 ),
               ),
@@ -188,11 +188,11 @@ class _UpComingMaintenanceState extends State<UpComingMaintenance> {
       child: SizedBox(
         height: 250,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
           child: Column(
             children: [
               Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(
                     height: 10,
@@ -491,9 +491,9 @@ class Percentage {
 
 class _CircleProgressChartState extends State<CircleProgressChart> {
   final List<Percentage> percentageList = [
-    Percentage(percent: 40, categories: 'pH variation last Year'),
-    Percentage(percent: 50, categories: 'pH variation last Month'),
-    Percentage(percent: 20, categories: 'pH variation last Day'),
+    Percentage(percent: 40, categories: 'Yearly pH variation '),
+    Percentage(percent: 50, categories: 'Termly pH variation'),
+    Percentage(percent: 20, categories: 'Monthly pH variation'),
     // Add more Percentage objects as needed
   ];
 
@@ -524,7 +524,7 @@ class _CircleProgressChartState extends State<CircleProgressChart> {
                     radius: 25,
                     lineWidth: 5,
                     percent: percentList.percent / 100,
-                    backgroundColor: PrimaryColor,
+                    //backgroundColor: Colors.white,
                     progressColor: Colors.white,
                     backgroundWidth: 1,
                     center: Text(
@@ -533,16 +533,20 @@ class _CircleProgressChartState extends State<CircleProgressChart> {
                         color: Colors.white,
                         fontSize: 10,
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                   const SizedBox(
                     height: 4,
                   ),
-                  Text(
-                    percentList.categories,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 8,
+                  Container(
+                    padding: EdgeInsets.only(left: 15),
+                    child: Text(
+                      percentList.categories,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                      ),
                     ),
                   ),
                 ],

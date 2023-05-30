@@ -14,6 +14,9 @@ dependencies:
   fl_chart: ^0.35.0
   percent_indicator: ^3.0.1
   intl: ^0.17.0
+  carousel_slider: ^4.0.0
+  firebase_core: ^2.12.0
+  firebase_auth: ^4.6.1
 
 
 
@@ -35,3 +38,14 @@ flutter:
     - assets/images/system_status/online_system.png
     - assets/images/system_status/offline_system.png
     - assets/images/system_status/system_maintenance.png
+    - assets/images/health_check/health_check_image.png
+    - assets/images/iFilter_Description/iFilter_cabinet1.jpg
+    - assets/images/iFilter_Description/iFilter_cabinet2.png
+    - assets/images/iFilter_Description/iFilter_cabinet3.jpg
+    - assets/images/iFilter_Description/iFilter_cabinet4.png
+
+
+
+
+
+

@@ -6,10 +6,14 @@ class WaterParametersCards extends StatelessWidget {
     Key? key,
     required this.title,
     required this.value,
+    this.cardWidth = 60.0, // Customize the width of the card
+    this.cardHeight = 60.0, // Customize the height of the card
   }) : super(key: key);
 
   final String title;
   final String value;
+  final double cardWidth;
+  final double cardHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +26,13 @@ class WaterParametersCards extends StatelessWidget {
         case 'Conductivity':
           return Icon(Icons.electrical_services_outlined,
               color: PrimaryColor, size: 22);
+        case 'Ammonium':
+          return Icon(Icons.biotech_outlined, color: PrimaryColor, size: 22);
         case 'DO':
           return Icon(Icons.bubble_chart_outlined,
               color: PrimaryColor, size: 22);
-        case 'Turbidity':
+        case 'TSS':
           return Icon(Icons.blur_on_outlined, color: PrimaryColor, size: 22);
-        case 'SS':
-          return Icon(Icons.grain_outlined, color: PrimaryColor, size: 22);
-        case 'Ammonium':
-          return Icon(Icons.biotech_outlined, color: PrimaryColor, size: 22);
         case 'Chlorophyll':
           return Icon(Icons.eco_outlined, color: PrimaryColor, size: 22);
         case 'Chloride':
@@ -44,31 +46,75 @@ class WaterParametersCards extends StatelessWidget {
     }
 
     return Card(
-      elevation: 8.0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: BorderRadius.circular(20.0),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          getIcon(),
-          SizedBox(height: 5.0),
-          Text(
-            title,
-            style: TextStyle(
-              color: Colors.blue[200],
-              fontSize: 15.0,
-              fontWeight: FontWeight.bold,
+      color: Colors.blue[50],
+      child: SizedBox(
+        width: cardWidth,
+        height: cardHeight,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 15, right: 15),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Container(
+                        padding: EdgeInsets.all(2),
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Center(
+                          child: getIcon(),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: 5.0),
-          Text(
-            value,
-            style: TextStyle(
-              fontSize: 16.0,
+            Padding(
+              padding: const EdgeInsets.only(left: 10, bottom: 0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            value,
+                            style: TextStyle(
+                              color: Colors.blue[200],
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 10.0),
+                          Text(
+                            title,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
