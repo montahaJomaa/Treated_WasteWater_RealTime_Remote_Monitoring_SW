@@ -1,28 +1,62 @@
 import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:ifilter_mobile_application/src/constants/sizes.dart';
 import 'package:ifilter_mobile_application/src/constants/colors.dart';
 import '../../../../../features/authentication/screens/forget_password/forget_password_options/forget_password_model_bottom_sheet.dart';
 import 'package:ifilter_mobile_application/src/features/authentication/screens/dashboard/dashboard_screen.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   LoginForm({
     Key? key,
   }) : super(key: key);
 
-  GlobalKey<FormState> formLogInKey = GlobalKey<FormState>();
+  @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  final GlobalKey<FormState> formLogInKey = GlobalKey<FormState>();
+
   final TextEditingController _controllerEmail = TextEditingController();
+
   final TextEditingController _controllerPassword = TextEditingController();
 
   Future<void> signInWithEmailAndPassword() async {
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _controllerEmail.text,
-        password: _controllerPassword.text,
-      );
+    if (formLogInKey.currentState!.validate()) {
+      try {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: _controllerEmail.text,
+          password: _controllerPassword.text,
+        );
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => Dashboard()),
+        );
+      } on FirebaseAuthException catch (e) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Login Error'),
+            content: Text('Failed to log in. Please verify your credentials.'),
+          ),
+        );
+      }
+    }
+  }
 
-      MaterialPageRoute(builder: (context) => Dashboard());
-    } on FirebaseAuthException catch (e) {}
+  String? validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Email is required';
+    }
+    return null;
+  }
+
+  String? validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Password is required';
+    }
+    return null;
   }
 
   @override
@@ -38,6 +72,7 @@ class LoginForm extends StatelessWidget {
               SizedBox(height: 20),
               TextFormField(
                 controller: _controllerEmail,
+                validator: validateEmail,
                 decoration: InputDecoration(
                   prefixIcon:
                       Icon(Icons.person_outline_outlined, color: PrimaryColor),
@@ -56,6 +91,7 @@ class LoginForm extends StatelessWidget {
               SizedBox(height: 10),
               TextFormField(
                 controller: _controllerPassword,
+                validator: validatePassword,
                 obscureText: true,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.fingerprint, color: PrimaryColor),

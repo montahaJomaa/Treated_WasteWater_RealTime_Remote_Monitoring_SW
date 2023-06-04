@@ -5,12 +5,55 @@ import 'package:ifilter_mobile_application/src/constants/text_strings.dart';
 import 'package:ifilter_mobile_application/src/constants/sizes.dart';
 import 'profile_screen.dart';
 import 'package:ifilter_mobile_application/src/common_widgets/bottom_navigation_menu/bottom_navigation_menu.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class UpdateProfileScreen extends StatelessWidget {
-  const UpdateProfileScreen({Key? key}) : super(key: key);
+  UpdateProfileScreen({Key? key}) : super(key: key);
+  final User? user = FirebaseAuth.instance.currentUser;
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  Future<void> updateProfile(BuildContext context) async {
+    final String fullName = _fullNameController.text.trim();
+    final String email = _emailController.text.trim();
+    final String phoneNumber = _phoneController.text.trim();
+    final String password = _passwordController.text.trim();
+
+    if (fullName.isEmpty ||
+        email.isEmpty ||
+        password.isEmpty ||
+        phoneNumber.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Please fill in all required fields.")),
+      );
+      return;
+    }
+    try {
+      await user?.updateDisplayName(_fullNameController.text);
+      await user?.updateEmail(_emailController.text);
+      // await user?.updatePhoneNumber(_phoneController);
+      await user?.updatePassword(_passwordController.text);
+      // Profile update successful
+      print('User profile updated successfully');
+      await user?.reload(); // Reload the user data from Firebase
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Profile updated successfully.")),
+      );
+    } on FirebaseAuthException catch (e) {
+      // Error updating profile
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.message ?? 'Profile Update failed.')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    _fullNameController.text = user?.displayName ?? '';
+    _emailController.text = user?.email ?? '';
+    _phoneController.text = user?.phoneNumber ?? '';
     return Scaffold(
       body: Column(
         children: [
@@ -49,8 +92,9 @@ class UpdateProfileScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               TextFormField(
+                                controller: _fullNameController,
                                 decoration: const InputDecoration(
-                                  label: Text("Montaha Jomaa"),
+                                  label: Text("Full Name"),
                                   prefixIcon: Icon(
                                       Icons.person_outline_outlined,
                                       color: PrimaryColor),
@@ -64,8 +108,9 @@ class UpdateProfileScreen extends StatelessWidget {
                               ),
                               SizedBox(height: 10),
                               TextFormField(
+                                controller: _emailController,
                                 decoration: const InputDecoration(
-                                  label: Text("montahajomaa4@gmail.com"),
+                                  label: Text("Email"),
                                   prefixIcon: Icon(Icons.email_outlined,
                                       color: PrimaryColor),
                                   border: OutlineInputBorder(
@@ -78,8 +123,9 @@ class UpdateProfileScreen extends StatelessWidget {
                               ),
                               SizedBox(height: 10),
                               TextFormField(
+                                controller: _phoneController,
                                 decoration: const InputDecoration(
-                                  label: Text("50 751 818"),
+                                  label: Text("Phone Number"),
                                   prefixIcon: Icon(Icons.numbers_outlined,
                                       color: PrimaryColor),
                                   border: OutlineInputBorder(
@@ -92,8 +138,9 @@ class UpdateProfileScreen extends StatelessWidget {
                               ),
                               SizedBox(height: 10),
                               TextFormField(
+                                controller: _passwordController,
                                 decoration: const InputDecoration(
-                                  label: Text("********"),
+                                  label: Text("Password"),
                                   prefixIcon: Icon(Icons.fingerprint,
                                       color: PrimaryColor),
                                   border: OutlineInputBorder(
@@ -109,17 +156,14 @@ class UpdateProfileScreen extends StatelessWidget {
                                 width: double.infinity,
                                 height: FormHeight + 20,
                                 child: ElevatedButton(
-                                  onPressed: () => Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            UpdateProfileScreen()),
-                                  ),
+                                  onPressed: () {
+                                    updateProfile(context);
+                                  },
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: PrimaryColor,
                                       side: BorderSide.none,
                                       shape: const StadiumBorder()),
-                                  child: const Text(EditProfile,
+                                  child: const Text("Update Profile",
                                       style: TextStyle(color: Colors.white)),
                                 ),
                               ),
@@ -140,17 +184,6 @@ class UpdateProfileScreen extends StatelessWidget {
                                                 fontSize: 12),
                                           )
                                         ]),
-                                  ),
-                                  ElevatedButton(
-                                    onPressed: () {},
-                                    style: ElevatedButton.styleFrom(
-                                        backgroundColor:
-                                            Colors.redAccent.withOpacity(0.1),
-                                        elevation: 0,
-                                        foregroundColor: Colors.red,
-                                        shape: const StadiumBorder(),
-                                        side: BorderSide.none),
-                                    child: const Text("Delete"),
                                   ),
                                 ],
                               ),

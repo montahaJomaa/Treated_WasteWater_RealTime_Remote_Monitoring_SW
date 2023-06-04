@@ -14,6 +14,29 @@ import 'package:ifilter_mobile_application/src/common_widgets/bottom_navigation_
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
+  Future<void> deleteAccount(BuildContext context) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        await user.delete();
+        // Account deletion successful
+        print('User account deleted successfully');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Account deleted successfully.")),
+        );
+      }
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => WelcomeScreen()),
+      );
+    } on FirebaseAuthException catch (e) {
+      // Error deleting account
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.message ?? 'Account deletion failed.')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
@@ -112,6 +135,27 @@ class ProfileScreen extends StatelessWidget {
                                   builder: (context) => WelcomeScreen()),
                             );
                           },
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.symmetric(vertical: 20),
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  deleteAccount(context);
+                                },
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor:
+                                        Colors.redAccent.withOpacity(0.1),
+                                    elevation: 0,
+                                    foregroundColor: Colors.red,
+                                    shape: const StadiumBorder(),
+                                    side: BorderSide.none),
+                                child: const Text("Delete Profile"),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
