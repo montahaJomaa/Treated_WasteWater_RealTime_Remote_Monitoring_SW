@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ifilter_mobile_application/src/constants/sizes.dart';
 import 'package:ifilter_mobile_application/src/constants/colors.dart';
+import 'package:ifilter_mobile_application/src/features/authentication/screens/signup/widgets/forgot_pwd_screen.dart';
 import '../../../../../features/authentication/screens/forget_password/forget_password_options/forget_password_model_bottom_sheet.dart';
 import 'package:ifilter_mobile_application/src/features/authentication/screens/dashboard/dashboard_screen.dart';
 
@@ -114,9 +115,10 @@ class _LoginFormState extends State<LoginForm> {
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                  onPressed: () {
-                    ForgetPasswordScreen.buildShowModalBottomSheet(context);
-                  },
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ForgotPassword()),
+                  ),
                   child: const Text(
                     "Forget Password?",
                     style: TextStyle(color: PrimaryColor),

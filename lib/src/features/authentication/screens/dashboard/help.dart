@@ -63,7 +63,9 @@ class Help extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Help'),
+        backgroundColor: Colors.blue[200],
+        elevation: 0,
+        title: Text('FAQ'),
       ),
       body: ListView.builder(
         itemCount: faqItems.length,

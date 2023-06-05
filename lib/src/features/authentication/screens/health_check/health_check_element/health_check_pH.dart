@@ -167,21 +167,6 @@ class UpComingMaintenance extends StatefulWidget {
 }
 
 class _UpComingMaintenanceState extends State<UpComingMaintenance> {
-  final List itemList = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-  ];
-  String? selectedValue = "August";
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -233,67 +218,7 @@ class _UpComingMaintenanceState extends State<UpComingMaintenance> {
               SizedBox(
                 width: 140,
                 child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text(
-                          "Day",
-                          style: TextStyle(
-                            color: PrimaryColor,
-                            fontSize: 12,
-                          ),
-                        ),
-                        Text(
-                          "Week",
-                          style: TextStyle(
-                            color: PrimaryColor,
-                            fontSize: 12,
-                          ),
-                        ),
-                        Text(
-                          "Month",
-                          style: TextStyle(
-                            color: PrimaryColor,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      height: 20,
-                      width: 144,
-                      decoration: BoxDecoration(
-                        color: PrimaryColor,
-                        borderRadius: BorderRadius.circular(100.0),
-                      ),
-                      child: DropdownButtonHideUnderline(
-                        child: DropdownButton(
-                          value: selectedValue,
-                          dropdownColor: PrimaryColor,
-                          items:
-                              itemList.map<DropdownMenuItem<String>>((value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(
-                                value,
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              selectedValue = newValue;
-                            });
-                          },
-                        ),
-                      ),
-                    ),
-                  ],
+                  children: [],
                 ),
               ),
             ],

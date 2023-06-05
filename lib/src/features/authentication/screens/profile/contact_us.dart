@@ -5,6 +5,8 @@ class ContactUs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue[200],
+        elevation: 0,
         title: Text('Contact Us'),
       ),
       body: Padding(
@@ -23,12 +25,12 @@ class ContactUs extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.email),
               title: Text('Email'),
-              subtitle: Text('info@example.com'),
+              subtitle: Text('contact.smartlogger@gmail.com'),
             ),
             ListTile(
               leading: Icon(Icons.phone),
               title: Text('Phone'),
-              subtitle: Text('+1 123-456-7890'),
+              subtitle: Text('+216 25 605 867'),
             ),
             SizedBox(height: 32),
             Text(
@@ -42,17 +44,17 @@ class ContactUs extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.location_on),
               title: Text('Street'),
-              subtitle: Text('123 Main St'),
+              subtitle: Text('Yasser Arafat,Sahloul'),
             ),
             ListTile(
               leading: Icon(Icons.location_city),
               title: Text('City'),
-              subtitle: Text('New York'),
+              subtitle: Text('Sousse'),
             ),
             ListTile(
               leading: Icon(Icons.pin_drop),
               title: Text('Postal Code'),
-              subtitle: Text('10001'),
+              subtitle: Text('4057'),
             ),
           ],
         ),

@@ -55,11 +55,15 @@ class UpdateProfileScreen extends StatelessWidget {
     _emailController.text = user?.email ?? '';
     _phoneController.text = user?.phoneNumber ?? '';
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue[200],
+        elevation: 0,
+      ),
       body: Column(
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: EdgeInsets.only(top: 50), // Add spacing at the top
+              padding: EdgeInsets.only(top: 30), // Add spacing at the top
               child: Column(
                 children: [
                   Container(
@@ -168,25 +172,6 @@ class UpdateProfileScreen extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(height: FormHeight),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text.rich(
-                                    TextSpan(
-                                        text: "Joined ",
-                                        style: TextStyle(fontSize: 12),
-                                        children: [
-                                          TextSpan(
-                                            text: JoinedAt,
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 12),
-                                          )
-                                        ]),
-                                  ),
-                                ],
-                              ),
                             ],
                           ),
                         ),

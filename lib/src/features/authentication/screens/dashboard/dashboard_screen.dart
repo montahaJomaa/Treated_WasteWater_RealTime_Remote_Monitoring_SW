@@ -48,7 +48,7 @@ class Dashboard extends StatelessWidget {
                                         builder: (context) => Help()),
                                   ),
                                   icon: Icon(
-                                    Icons.notifications,
+                                    Icons.help_outline,
                                     color: Colors.grey[400],
                                   ),
                                   iconSize: 30.0,

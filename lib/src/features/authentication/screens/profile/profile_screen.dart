@@ -71,11 +71,11 @@ class ProfileScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 10),
+                        /* const SizedBox(height: 10),
                         Text(ProfileHeading,
                             style: Theme.of(context).textTheme.headline5),
                         Text(ProfileSubHeading,
-                            style: Theme.of(context).textTheme.bodyText2),
+                            style: Theme.of(context).textTheme.bodyText2),*/
                         const SizedBox(height: 20),
                         SizedBox(
                           width: 200,
