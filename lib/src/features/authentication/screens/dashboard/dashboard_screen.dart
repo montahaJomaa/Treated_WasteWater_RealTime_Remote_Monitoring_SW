@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ifilter_mobile_application/src/constants/image_string.dart';
@@ -9,7 +11,42 @@ import 'dart:ui';
 import 'help.dart';
 //import 'health_check/health_check_element/health_check_pH.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+  Map<dynamic, dynamic> data = {
+    'pH': '--',
+    'Ammonium': '--',
+    'COD': '--',
+    'Conductivity': '--',
+    'Chloride': '--',
+    'DO': '--',
+    'TSS': '--',
+    'Chlorophyll': '--',
+    'ORP': '--',
+  };
+
+  @override
+  void initState() {
+    super.initState();
+
+    final DatabaseReference databaseReference = FirebaseDatabase.instance
+        .ref()
+        .child('ifilter-33bac-default-rtdb')
+        .child('UsersData')
+        .child('xBGWvff1vyUkF0gTDe2t99jungL2');
+    databaseReference.onValue.listen((DatabaseEvent event) {
+      setState(() {
+        data = event.snapshot.value as Map<dynamic, dynamic>;
+      });
+
+      print(data.toString());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -86,7 +123,7 @@ class Dashboard extends StatelessWidget {
                                           child: CircularProgressIndicator(
                                             strokeWidth: 5,
                                             value:
-                                                0.2, // Replace with your desired progress value
+                                                0.2, //  To determine the desired progress value
                                             backgroundColor: Colors.grey,
                                             valueColor: AlwaysStoppedAnimation<
                                                     Color>(
@@ -102,18 +139,16 @@ class Dashboard extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-                                    SizedBox(
-                                        width:
-                                            15), // Add this line to adjust the spacing between the progress circle and the "Irrigation Safety" text
+                                    SizedBox(width: 15),
+                                    // To adjust the spacing between the progress circle and the "Irrigation Safety" text
                                     Text(
-                                      "Overall Drinking Safety", // Replace with your desired text
+                                      "Overall Irrigation Safety",
                                       style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    SizedBox(
-                                        width:
-                                            30), // Add this line to adjust the spacing between the "Irrigation Safety" text and the "View more" button
+                                    SizedBox(width: 30),
+                                    // To adjust the spacing between the "Irrigation Safety" text and the "View more" button
                                   ],
                                 ),
                               ),
@@ -153,25 +188,32 @@ class Dashboard extends StatelessWidget {
                                   GestureDetector(
                                     onTap: () {
                                       // Handle navigation to the desired screen for pH
-                                      // Add your navigation logic here
                                     },
                                     child: WaterParametersCards(
-                                        title: 'COD', value: '20 mg/L'),
+                                        title: 'COD',
+                                        value: data['COD'].toString()),
                                   ),
                                   WaterParametersCards(
-                                      title: 'Conductivity', value: '3.10¨^4'),
+                                      title: 'Conductivity',
+                                      value: data['Conductivity'].toString()),
                                   WaterParametersCards(
-                                      title: 'DO', value: '6.0 mg/L'),
+                                      title: 'DO',
+                                      value: data['DO'].toString()),
                                   WaterParametersCards(
-                                      title: 'TSS', value: '250 mg/L'),
+                                      title: 'TSS',
+                                      value: data['TSS'].toString()),
                                   WaterParametersCards(
-                                      title: 'Ammonium', value: '3.10¨^4'),
+                                      title: 'Ammonium',
+                                      value: data['Ammonium'].toString()),
                                   WaterParametersCards(
-                                      title: 'Chlorophyll', value: '6.0 mg/L'),
+                                      title: 'Chlorophyll',
+                                      value: data['Chlorophyll'].toString()),
                                   WaterParametersCards(
-                                      title: 'Chloride', value: '250 mg/L'),
+                                      title: 'Chloride',
+                                      value: data['Chloride'].toString()),
                                   WaterParametersCards(
-                                      title: 'ORP', value: '10 mg/L'),
+                                      title: 'ORP',
+                                      value: data['ORP'].toString()),
                                 ],
                               )
                             ],

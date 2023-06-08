@@ -13,47 +13,47 @@ class Help extends StatelessWidget {
           'To get started, simply download and install the app from the app store.',
     ),
     FAQItem(
-      question: 'How do I get started?',
+      question: 'What is pH measurement used for?',
       answer:
           'To get started, simply download and install the app from the app store.',
     ),
     FAQItem(
-      question: 'How do I get started?',
+      question: 'What is Conductivity measurement used for?',
       answer:
           'To get started, simply download and install the app from the app store.',
     ),
     FAQItem(
-      question: 'How do I get started?',
+      question: 'What is TSS measurement used for?',
       answer:
           'To get started, simply download and install the app from the app store.',
     ),
     FAQItem(
-      question: 'How do I get started?',
+      question: 'What is COD measurement used for?',
       answer:
           'To get started, simply download and install the app from the app store.',
     ),
     FAQItem(
-      question: 'How do I get started?',
+      question: 'What is DO measurement used for?',
       answer:
           'To get started, simply download and install the app from the app store.',
     ),
     FAQItem(
-      question: 'How do I get started?',
+      question: 'What is Chlorophyll measurement used for?',
       answer:
           'To get started, simply download and install the app from the app store.',
     ),
     FAQItem(
-      question: 'How do I get started?',
+      question: 'What is Chloride measurement used for?',
       answer:
           'To get started, simply download and install the app from the app store.',
     ),
     FAQItem(
-      question: 'How do I get started?',
+      question: 'What is Ammonium measurement used for?',
       answer:
           'To get started, simply download and install the app from the app store.',
     ),
     FAQItem(
-      question: 'How do I get started?',
+      question: 'What is ORP measurement used for?',
       answer:
           'To get started, simply download and install the app from the app store.',
     ),

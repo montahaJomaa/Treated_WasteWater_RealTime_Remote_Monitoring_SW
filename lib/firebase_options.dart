@@ -49,6 +49,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '178505688610',
     projectId: 'ifilter-33bac',
     authDomain: 'ifilter-33bac.firebaseapp.com',
+    databaseURL: 'https://ifilter-33bac-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'ifilter-33bac.appspot.com',
   );
 
@@ -57,6 +58,7 @@ class DefaultFirebaseOptions {
     appId: '1:178505688610:android:8ee3b5455e74acf7790c7b',
     messagingSenderId: '178505688610',
     projectId: 'ifilter-33bac',
+    databaseURL: 'https://ifilter-33bac-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'ifilter-33bac.appspot.com',
   );
 
@@ -65,6 +67,7 @@ class DefaultFirebaseOptions {
     appId: '1:178505688610:ios:cfe3ecfc24366c55790c7b',
     messagingSenderId: '178505688610',
     projectId: 'ifilter-33bac',
+    databaseURL: 'https://ifilter-33bac-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'ifilter-33bac.appspot.com',
     iosClientId: '178505688610-k0ec42f75trq9bmcvju8ils8lch1sa9t.apps.googleusercontent.com',
     iosBundleId: 'com.example.ifilterMobileApplication',
@@ -75,6 +78,7 @@ class DefaultFirebaseOptions {
     appId: '1:178505688610:ios:cfe3ecfc24366c55790c7b',
     messagingSenderId: '178505688610',
     projectId: 'ifilter-33bac',
+    databaseURL: 'https://ifilter-33bac-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'ifilter-33bac.appspot.com',
     iosClientId: '178505688610-k0ec42f75trq9bmcvju8ils8lch1sa9t.apps.googleusercontent.com',
     iosBundleId: 'com.example.ifilterMobileApplication',

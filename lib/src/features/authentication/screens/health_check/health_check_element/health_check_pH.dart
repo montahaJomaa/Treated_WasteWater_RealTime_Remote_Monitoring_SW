@@ -336,11 +336,11 @@ class _ExpenseGraphDesignState extends State<ExpenseGraphDesign> {
             },
           ),
           titlesData: FlTitlesData(
-            leftTitles: SideTitles(showTitles: false),
+            leftTitles: SideTitles(showTitles: true),
             rightTitles: SideTitles(showTitles: false),
             topTitles: SideTitles(showTitles: false),
             bottomTitles: SideTitles(
-              showTitles: true,
+              showTitles: false,
               reservedSize: 12,
               getTitles: (value) {
                 String text = '';
@@ -419,7 +419,6 @@ class _CircleProgressChartState extends State<CircleProgressChart> {
     Percentage(percent: 40, categories: 'Yearly pH variation '),
     Percentage(percent: 50, categories: 'Termly pH variation'),
     Percentage(percent: 20, categories: 'Monthly pH variation'),
-    // Add more Percentage objects as needed
   ];
 
   @override
